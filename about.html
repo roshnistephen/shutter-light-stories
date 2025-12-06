@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About | Shutter Light Stories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">S</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">Shutter Light Stories</span>
+            <span class="nav-logo-sub">Wedding Cinema &amp; Stills</span>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html" class="active">About</a>
+          <a href="services.html">Services</a>
+          <a href="films.html">Films</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html" class="nav-cta">Enquire Now <span>↗</span></a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <div class="nav-toggle-line"></div>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-kicker">The studio</div>
+          <h1 class="section-title">A boutique team for once-in-a-lifetime days.</h1>
+          <p class="section-subtitle">
+            Shutter Light Stories was born from a simple belief — your wedding photographs should feel as
+            considered and curated as the way you designed your celebration.
+          </p>
+        </div>
+
+        <div class="split">
+          <div class="reveal">
+            <p class="lead">
+              Led by our principal photographer and creative director, Shutter Light Stories brings together
+              a tight-knit team of photographers, cinematographers and editors who specialise in
+              high-touch, multi-day celebrations.
+            </p>
+            <p class="lead">
+              We work with a limited number of couples each year, allowing us to invest deeply in each story —
+              understanding your families, your rituals and the atmosphere you want to remember.
+            </p>
+            <ul class="list-inline">
+              <li><strong>Approach:</strong> Editorial, cinematic and quietly luxurious.</li>
+              <li><strong>Clients:</strong> Modern couples, public figures, C-suite leaders &amp; creative professionals.</li>
+              <li><strong>Coverage:</strong> Christian, Hindu, Muslim &amp; inter-faith weddings, private events and destination celebrations.</li>
+            </ul>
+            <div class="badges-row">
+              <span class="badge">Multi-day wedding specialists</span>
+              <span class="badge">In-house editing &amp; colour</span>
+              <span class="badge">Non-disclosure friendly</span>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="card">
+              <div class="card-tagline">Founder &amp; Creative Director</div>
+              <h3 class="card-title">Your storyteller behind the lens</h3>
+              <p class="card-text">
+                Every wedding is an invitation to observe the smallest glances, the quietest blessings and
+                the loudest laughs. My role is to anticipate those moments before they unfold — and preserve
+                them in a way that feels sophisticated yet honest.
+              </p>
+              <p class="card-text">
+                Whether it’s managing timelines with your planner or making your camera-shy parents feel at
+                ease, we hold the space so you can simply be present.
+              </p>
+              <div class="card-pill">Available for select 2026 &amp; 2027 dates</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">S</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">Shutter Light Stories</span>
+            <span class="nav-logo-sub">Wedding Cinema &amp; Stills</span>
+          </div>
+        </a>
+        <p class="footer-brand-copy">
+          Shutter Light Stories is a luxury wedding photography and film studio dedicated to
+          crafting understated, cinematic visuals for discerning couples and families.
+        </p>
+      </div>
+      <div class="footer-meta">
+        <span>Based in Kochi · Available across India &amp; worldwide</span>
+        <span>Contact: hello@shutterlightstories.com · +91-00000-00000</span>
+        <span>© <span id="year"></span> Shutter Light Stories. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

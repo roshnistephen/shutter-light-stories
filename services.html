@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Services | Shutter Light Stories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">S</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">Shutter Light Stories</span>
+            <span class="nav-logo-sub">Wedding Cinema &amp; Stills</span>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html" class="active">Services</a>
+          <a href="films.html">Films</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html" class="nav-cta">Enquire Now <span>↗</span></a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <div class="nav-toggle-line"></div>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-kicker">Services</div>
+          <h1 class="section-title">Designed for multi-day, multi-culture celebrations.</h1>
+          <p class="section-subtitle">
+            Every collection is customised around your events, locations and guest experience, with a
+            dedicated team assigned to cover each chapter of your wedding story.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="card-tagline">Weddings · Engagements · Receptions</div>
+            <h2 class="card-title">Luxury Wedding Photography</h2>
+            <p class="card-text">
+              Full-day, multi-day and destination coverage with a lead photographer and associate team,
+              crafted timelines and signature portrait sessions for you and your families.
+            </p>
+            <ul class="list-inline">
+              <li><strong>Includes:</strong> High-resolution edited images, private gallery, print licence.</li>
+              <li><strong>Ideal for:</strong> Christian, Hindu, Muslim and inter-faith weddings.</li>
+            </ul>
+            <div class="card-pill">Collections begin at request</div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-tagline">Teasers · Highlights · Full-length</div>
+            <h2 class="card-title">Cinematic Wedding Films</h2>
+            <p class="card-text">
+              Multi-camera film teams capture vows, speeches and celebrations in 4K, edited into
+              elegant teasers and feature films with licensed music and bespoke colour grading.
+            </p>
+            <ul class="list-inline">
+              <li><strong>Includes:</strong> Highlight film, ceremony edit, speeches edit (based on collection).</li>
+              <li><strong>Ideal for:</strong> Grand receptions and destination weddings.</li>
+            </ul>
+            <div class="card-pill">Drone &amp; same-day edits available</div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-tagline">Corporate · Family · Editorial</div>
+            <h2 class="card-title">Events &amp; Portrait Commissions</h2>
+            <p class="card-text">
+              Refined coverage for milestone events, corporate gatherings and legacy family sessions,
+              crafted with the same attention to detail as our weddings.
+            </p>
+            <ul class="list-inline">
+              <li><strong>Includes:</strong> Custom brief, half / full-day coverage, curated selections.</li>
+              <li><strong>Ideal for:</strong> Corporate events &amp; baby / family portraits.</li>
+            </ul>
+            <div class="card-pill">Limited weekday dates</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">S</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">Shutter Light Stories</span>
+            <span class="nav-logo-sub">Wedding Cinema &amp; Stills</span>
+          </div>
+        </a>
+        <p class="footer-brand-copy">
+          Shutter Light Stories is a luxury wedding photography and film studio dedicated to
+          crafting understated, cinematic visuals for discerning couples and families.
+        </p>
+      </div>
+      <div class="footer-meta">
+        <span>Based in Kochi · Available across India &amp; worldwide</span>
+        <span>Contact: hello@shutterlightstories.com · +91-00000-00000</span>
+        <span>© <span id="year"></span> Shutter Light Stories. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

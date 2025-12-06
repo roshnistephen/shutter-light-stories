@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gallery | Shutter Light Stories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">S</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">Shutter Light Stories</span>
+            <span class="nav-logo-sub">Wedding Cinema &amp; Stills</span>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="films.html">Films</a>
+          <a href="gallery.html" class="active">Gallery</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html" class="nav-cta">Enquire Now <span>↗</span></a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <div class="nav-toggle-line"></div>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-kicker">Gallery</div>
+          <h1 class="section-title">Curated stories from our couples &amp; clients.</h1>
+          <p class="section-subtitle">
+            Explore a selection of Christian, Hindu, Muslim and destination weddings, along with
+            corporate events and baby sessions captured by our studio.
+          </p>
+        </div>
+
+        <div class="gallery-filters reveal">
+          <button class="filter-btn active" data-filter="all">All stories</button>
+          <button class="filter-btn" data-filter="christian">Christian weddings</button>
+          <button class="filter-btn" data-filter="hindu">Hindu weddings</button>
+          <button class="filter-btn" data-filter="muslim">Muslim weddings</button>
+          <button class="filter-btn" data-filter="corporate">Corporate events</button>
+          <button class="filter-btn" data-filter="baby">Baby photoshoots</button>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Christian wedding -->
+          <div class="gallery-item reveal" data-category="christian">
+            <img src="assets/images_optimized/christian/christian-01.jpg" alt="Christian wedding couple portrait" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+              Christian wedding · Kochi
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-category="christian">
+            <img src="assets/images_optimized/christian/christian-02.jpg" alt="Christian wedding ceremony" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+              Church ceremony
+            </div>
+          </div>
+
+          <!-- Hindu wedding -->
+          <div class="gallery-item reveal" data-category="hindu">
+            <img src="assets/images_optimized/hindu/hindu-01.jpg" alt="Hindu mandap and rituals" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+              Hindu wedding · Bangalore
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-category="hindu">
+            <img src="assets/images_optimized/hindu/hindu-02.jpg" alt="Hindu wedding couple" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+             Saptapadi moments
+            </div>
+          </div>
+
+          <!-- Muslim wedding -->
+          <div class="gallery-item reveal" data-category="muslim">
+            <img src="assets/images_optimized/muslim/muslim-01.jpg" alt="Muslim nikah ceremony" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+              Nikah under city lights
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-category="muslim">
+            <img src="assets/images_optimized/muslim/muslim-02.jpg" alt="Muslim wedding details" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+             Henna &amp; details
+            </div>
+          </div>
+
+          <!-- Corporate event -->
+          <div class="gallery-item reveal" data-category="corporate">
+            <img src="assets/images_optimized/corporate/corporate-01.jpg" alt="Corporate event stage" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+             Annual leadership summit
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-category="corporate">
+            <img src="assets/images_optimized/corporate/corporate-02.jpg" alt="Corporate networking" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+             Networking cocktails
+            </div>
+          </div>
+
+          <!-- Baby sessions -->
+          <div class="gallery-item reveal" data-category="baby">
+            <img src="assets/images_optimized/baby/baby-01.jpg" alt="Baby photoshoot in studio" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+             Baby milestone session
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-category="baby">
+            <img src="assets/images_optimized/baby/baby-02.jpg" alt="Lifestyle family portrait" />
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-meta">
+             Lifestyle family portraits
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+      <div class="lightbox-inner">
+        <img src="" alt="Expanded gallery image" />
+      </div>
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">S</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">Shutter Light Stories</span>
+            <span class="nav-logo-sub">Wedding Cinema &amp; Stills</span>
+          </div>
+        </a>
+        <p class="footer-brand-copy">
+          Shutter Light Stories is a luxury wedding photography and film studio dedicated to
+          crafting understated, cinematic visuals for discerning couples and families.
+        </p>
+      </div>
+      <div class="footer-meta">
+        <span>Based in Kochi · Available across India &amp; worldwide</span>
+        <span>Contact: hello@shutterlightstories.com · +91-00000-00000</span>
+        <span>© <span id="year"></span> Shutter Light Stories. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
