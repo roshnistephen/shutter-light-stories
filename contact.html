@@ -30,9 +30,18 @@
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
           <a href="films.html">Films</a>
-          <a href="gallery.html">Gallery</a>
+          <div class="nav-dropdown">
+            <a href="gallery.html" class="nav-dropdown-toggle">Gallery</a>
+            <div class="nav-dropdown-menu">
+              <a href="gallery.html#christian">Christian Weddings</a>
+              <a href="gallery.html#hindu">Hindu Weddings</a>
+              <a href="gallery.html#muslim">Muslim Weddings</a>
+              <a href="gallery.html#corporate">Corporate Events</a>
+              <a href="gallery.html#baby">Baby Photoshoots</a>
+            </div>
+          </div>
           <a href="contact.html" class="active">Contact</a>
-          <a href="contact.html" class="nav-cta">Enquire Now <span>↗</span></a>
+
         </div>
 
         <button class="nav-toggle" aria-label="Toggle navigation">
@@ -56,21 +65,23 @@
 
         <div class="contact-grid">
           <div class="form-card reveal">
-            <form action="#" method="post">
+            <form id="contactForm" action="#" method="post" novalidate>
               <div class="form-row">
                 <div class="form-group">
-                  <label class="form-label" for="name">Full name</label>
+                  <label class="form-label" for="name">Full name <span class="required">*</span></label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     class="form-control"
-                    placeholder="Bride / groom / planner name"
+                    placeholder="Your full name"
                     required
+                    minlength="2"
                   />
+                  <span class="form-error" id="nameError"></span>
                 </div>
                 <div class="form-group">
-                  <label class="form-label" for="email">Email</label>
+                  <label class="form-label" for="email">Email <span class="required">*</span></label>
                   <input
                     type="email"
                     id="email"
@@ -79,23 +90,28 @@
                     placeholder="your-email@example.com"
                     required
                   />
+                  <span class="form-error" id="emailError"></span>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
-                  <label class="form-label" for="phone">Phone</label>
+                  <label class="form-label" for="phone">Phone <span class="required">*</span></label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     class="form-control"
-                    placeholder="+91-8157015535"
+                    placeholder="+91 XXXXXXXXXX"
+                    required
+                    pattern="[\+]?[0-9\s\-]{10,15}"
                   />
+                  <span class="form-error" id="phoneError"></span>
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="date">Event date</label>
                   <input type="date" id="date" name="date" class="form-control" />
+                  <span class="form-error" id="dateError"></span>
                 </div>
               </div>
 
@@ -111,28 +127,36 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="type">Celebration type</label>
-                <input
-                  type="text"
-                  id="type"
-                  name="type"
-                  class="form-control"
-                  placeholder="Christian / Hindu / Muslim / destination / corporate / baby session"
-                />
+                <label class="form-label" for="type">Celebration type <span class="required">*</span></label>
+                <select id="type" name="type" class="form-control" required>
+                  <option value="">Select celebration type</option>
+                  <option value="Christian Wedding">Christian Wedding</option>
+                  <option value="Hindu Wedding">Hindu Wedding</option>
+                  <option value="Muslim Wedding">Muslim Wedding</option>
+                  <option value="Destination Wedding">Destination Wedding</option>
+                  <option value="Corporate Event">Corporate Event</option>
+                  <option value="Baby Session">Baby Session</option>
+                  <option value="Fashion/Portfolio">Fashion / Portfolio</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="form-error" id="typeError"></span>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="message">Tell us about your plans</label>
+                <label class="form-label" for="message">Tell us about your plans <span class="required">*</span></label>
                 <textarea
                   id="message"
                   name="message"
                   class="form-textarea"
                   placeholder="Share your events, guest count, and what matters most to you."
+                  required
+                  minlength="10"
                 ></textarea>
+                <span class="form-error" id="messageError"></span>
               </div>
 
               <button type="submit" class="btn btn-primary">
-                Submit enquiry <span>⟶</span>
+                Send via WhatsApp <span>⟶</span>
               </button>
             </form>
           </div>

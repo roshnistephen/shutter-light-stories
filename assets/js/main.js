@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupGalleryFilters();
     setupLightbox();
     initHeroCarousel();
+    setupContactForm();
   });
   
   /* ===========================
@@ -60,10 +61,42 @@ document.addEventListener("DOMContentLoaded", () => {
      =========================== */
   
   function setupGalleryFilters() {
+    const filterToggle = document.getElementById('filterToggle');
+    const filtersContainer = document.getElementById('galleryFilters');
     const filterButtons = document.querySelectorAll(".filter-btn");
     const items = document.querySelectorAll(".gallery-item");
   
     if (filterButtons.length === 0 || items.length === 0) return;
+
+    // Setup filter toggle button
+    if (filterToggle && filtersContainer) {
+      filterToggle.addEventListener('click', () => {
+        filterToggle.classList.toggle('active');
+        filtersContainer.classList.toggle('open');
+      });
+    }
+
+    // Handle hash-based category selection from URL
+    const handleHashFilter = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && filterButtons.length > 0) {
+        const targetBtn = Array.from(filterButtons).find(btn => btn.dataset.filter === hash);
+        if (targetBtn) {
+          // Open filters panel
+          if (filterToggle && filtersContainer) {
+            filterToggle.classList.add('active');
+            filtersContainer.classList.add('open');
+          }
+          // Trigger filter
+          targetBtn.click();
+        }
+      }
+    };
+
+    // Check hash on load
+    handleHashFilter();
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashFilter);
   
     filterButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -199,5 +232,160 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Auto advance every 4 seconds
     setInterval(nextSlide, 4000);
+  }
+  
+  /* ===========================
+     CONTACT FORM VALIDATION & WHATSAPP
+     =========================== */
+  
+  function setupContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+
+    const WHATSAPP_NUMBER = '918157015535';
+
+    // Form fields
+    const fields = {
+      name: {
+        element: document.getElementById('name'),
+        error: document.getElementById('nameError'),
+        validate: (value) => {
+          if (!value.trim()) return 'Full name is required';
+          if (value.trim().length < 2) return 'Name must be at least 2 characters';
+          return '';
+        }
+      },
+      email: {
+        element: document.getElementById('email'),
+        error: document.getElementById('emailError'),
+        validate: (value) => {
+          if (!value.trim()) return 'Email is required';
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) return 'Please enter a valid email address';
+          return '';
+        }
+      },
+      phone: {
+        element: document.getElementById('phone'),
+        error: document.getElementById('phoneError'),
+        validate: (value) => {
+          if (!value.trim()) return 'Phone number is required';
+          const phoneRegex = /^[\+]?[0-9\s\-]{10,15}$/;
+          if (!phoneRegex.test(value.replace(/\s/g, ''))) return 'Please enter a valid phone number';
+          return '';
+        }
+      },
+      type: {
+        element: document.getElementById('type'),
+        error: document.getElementById('typeError'),
+        validate: (value) => {
+          if (!value) return 'Please select a celebration type';
+          return '';
+        }
+      },
+      message: {
+        element: document.getElementById('message'),
+        error: document.getElementById('messageError'),
+        validate: (value) => {
+          if (!value.trim()) return 'Please tell us about your plans';
+          if (value.trim().length < 10) return 'Message must be at least 10 characters';
+          return '';
+        }
+      }
+    };
+
+    // Real-time validation on blur
+    Object.keys(fields).forEach(key => {
+      const field = fields[key];
+      if (field.element) {
+        field.element.addEventListener('blur', () => validateField(key));
+        field.element.addEventListener('input', () => {
+          if (field.element.classList.contains('error')) {
+            validateField(key);
+          }
+        });
+      }
+    });
+
+    function validateField(fieldName) {
+      const field = fields[fieldName];
+      if (!field.element) return true;
+
+      const value = field.element.value;
+      const errorMsg = field.validate(value);
+
+      if (errorMsg) {
+        field.element.classList.add('error');
+        field.element.classList.remove('success');
+        if (field.error) field.error.textContent = errorMsg;
+        return false;
+      } else {
+        field.element.classList.remove('error');
+        field.element.classList.add('success');
+        if (field.error) field.error.textContent = '';
+        return true;
+      }
+    }
+
+    function validateAllFields() {
+      let isValid = true;
+      Object.keys(fields).forEach(key => {
+        if (!validateField(key)) {
+          isValid = false;
+        }
+      });
+      return isValid;
+    }
+
+    // Form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!validateAllFields()) {
+        // Focus first error field
+        const firstError = form.querySelector('.form-control.error, .form-textarea.error');
+        if (firstError) firstError.focus();
+        return;
+      }
+
+      // Get form values
+      const name = fields.name.element.value.trim();
+      const email = fields.email.element.value.trim();
+      const phone = fields.phone.element.value.trim();
+      const date = document.getElementById('date')?.value || 'Not specified';
+      const location = document.getElementById('location')?.value.trim() || 'Not specified';
+      const type = fields.type.element.value;
+      const message = fields.message.element.value.trim();
+
+      // Format message for WhatsApp
+      const whatsappMessage = `*New Enquiry - Shutter Light Stories*
+
+*Name:* ${name}
+*Email:* ${email}
+*Phone:* ${phone}
+*Event Date:* ${date}
+*Location:* ${location}
+*Celebration Type:* ${type}
+
+*Message:*
+${message}`;
+
+      // Encode message for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      
+      // Create WhatsApp URL
+      const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+      
+      // Open WhatsApp
+      window.open(whatsappURL, '_blank');
+
+      // Optional: Reset form after submission
+      // form.reset();
+      // Object.keys(fields).forEach(key => {
+      //   if (fields[key].element) {
+      //     fields[key].element.classList.remove('success', 'error');
+      //   }
+      // });
+    });
   }
   

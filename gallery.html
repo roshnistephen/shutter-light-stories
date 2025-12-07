@@ -30,9 +30,18 @@
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
           <a href="films.html">Films</a>
-          <a href="gallery.html" class="active">Gallery</a>
+          <div class="nav-dropdown">
+            <a href="gallery.html" class="nav-dropdown-toggle active">Gallery</a>
+            <div class="nav-dropdown-menu">
+              <a href="gallery.html#christian">Christian Weddings</a>
+              <a href="gallery.html#hindu">Hindu Weddings</a>
+              <a href="gallery.html#muslim">Muslim Weddings</a>
+              <a href="gallery.html#corporate">Corporate Events</a>
+              <a href="gallery.html#baby">Baby Photoshoots</a>
+            </div>
+          </div>
           <a href="contact.html">Contact</a>
-          <a href="contact.html" class="nav-cta">Enquire Now <span>↗</span></a>
+
         </div>
 
         <button class="nav-toggle" aria-label="Toggle navigation">
@@ -54,7 +63,14 @@
           </p>
         </div>
 
-        <div class="gallery-filters reveal">
+        <div class="gallery-filter-toggle reveal">
+          <button class="filter-toggle-btn" id="filterToggle">
+            <span>Filter by Category</span>
+            <span class="filter-toggle-icon">▾</span>
+          </button>
+        </div>
+
+        <div class="gallery-filters reveal" id="galleryFilters">
           <button class="filter-btn active" data-filter="all">All stories</button>
           <button class="filter-btn" data-filter="christian">Christian weddings</button>
           <button class="filter-btn" data-filter="hindu">Hindu weddings</button>
