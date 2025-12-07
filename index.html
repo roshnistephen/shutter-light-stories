@@ -92,15 +92,15 @@
 
           <div class="hero-media reveal">
             <div class="hero-card-main">
-              <div class="hero-carousel" id="heroCarousel">
+              <div class="hero-carousel" id="heroCarousel" role="region" aria-label="Hero image carousel">
                 <div class="carousel-slides">
                   <!-- Slides will be dynamically added by JavaScript -->
                 </div>
-                <div class="carousel-indicators">
+                <div class="carousel-indicators" role="tablist" aria-label="Carousel navigation">
                   <!-- Indicators will be dynamically added by JavaScript -->
                 </div>
               </div>
-              <div class="hero-floating-badge">
+              <div class="hero-floating-badge" aria-hidden="true">
                 Professional<br />
                 Photography &amp; Videography
               </div>
@@ -175,10 +175,7 @@
   </a>
 
   <script>
-    // Initialize carousel on load
-    window.addEventListener('DOMContentLoaded', function() {
-      initHeroCarousel();
-    });
+    // Carousel will be initialized by main.js
   </script>
 </body>
 </html>
