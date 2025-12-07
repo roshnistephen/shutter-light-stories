@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupScrollReveal();
     setupGalleryFilters();
     setupLightbox();
+    initHeroCarousel();
   });
   
   /* ===========================
@@ -119,5 +120,71 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.classList.remove("active");
       }
     });
+  }
+  
+  /* ===========================
+     HERO CAROUSEL
+     =========================== */
+  
+  function initHeroCarousel() {
+    const carousel = document.getElementById('heroCarousel');
+    if (!carousel) return;
+    
+    const slidesContainer = carousel.querySelector('.carousel-slides');
+    const indicatorsContainer = carousel.querySelector('.carousel-indicators');
+    
+    if (!slidesContainer || !indicatorsContainer) return;
+    
+    // Get random images from gallery
+    const galleryImages = [
+      'assets/images_optimized/christian/christian-01.jpg',
+      'assets/images_optimized/christian/christian-02.jpg',
+      'assets/images_optimized/hindu/hindu-01.jpg',
+      'assets/images_optimized/hindu/hindu-02.jpg',
+      'assets/images_optimized/muslim/muslim-01.jpg',
+      'assets/images_optimized/muslim/muslim-02.jpg',
+      'assets/images_optimized/corporate/corporate-01.jpg',
+      'assets/images_optimized/baby/baby-01.jpg'
+    ];
+    
+    // Shuffle and select 5 random images
+    const shuffled = galleryImages.sort(() => 0.5 - Math.random());
+    const selectedImages = shuffled.slice(0, 5);
+    
+    // Create slides
+    selectedImages.forEach((imgSrc, index) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      slide.style.backgroundImage = `url('${imgSrc}')`;
+      slidesContainer.appendChild(slide);
+      
+      // Create indicator
+      const indicator = document.createElement('button');
+      indicator.className = 'carousel-indicator';
+      if (index === 0) indicator.classList.add('active');
+      indicator.addEventListener('click', () => goToSlide(index));
+      indicatorsContainer.appendChild(indicator);
+    });
+    
+    let currentSlide = 0;
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const indicators = carousel.querySelectorAll('.carousel-indicator');
+    
+    function goToSlide(n) {
+      currentSlide = n;
+      slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      indicators.forEach((ind, i) => {
+        ind.classList.toggle('active', i === currentSlide);
+      });
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      goToSlide(currentSlide);
+    }
+    
+    // Auto advance every 4 seconds
+    setInterval(nextSlide, 4000);
   }
   
