@@ -7,7 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
     setupLightbox();
     initHeroCarousel();
     setupContactForm();
+    setupLazyLoadImages();
   });
+
+  /* ===========================
+     LAZY LOAD IMAGE ANIMATION
+     =========================== */
+
+  function setupLazyLoadImages() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', () => {
+          img.classList.add('loaded');
+        });
+      }
+    });
+  }
   
   /* ===========================
      MOBILE NAV
@@ -168,29 +186,17 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (!slidesContainer || !indicatorsContainer) return;
     
-    // Get random images from gallery
-    const galleryImages = [
-      'assets/images_optimized/christian/christian-01.jpg',
-      'assets/images_optimized/christian/christian-02.jpg',
-      'assets/images_optimized/hindu/hindu-01.jpg',
-      'assets/images_optimized/hindu/hindu-02.jpg',
-      'assets/images_optimized/muslim/muslim-01.jpg',
-      'assets/images_optimized/muslim/muslim-02.jpg',
-      'assets/images_optimized/corporate/corporate-01.jpg',
-      'assets/images_optimized/baby/baby-01.jpg'
+    // Use consistent landscape images from hero_carousel folder (all 800x533, 3:2 aspect ratio)
+    const heroImages = [
+      'assets/images_optimized/hero_carousel/hero-01.jpg',
+      'assets/images_optimized/hero_carousel/hero-02.jpg',
+      'assets/images_optimized/hero_carousel/hero-03.jpg',
+      'assets/images_optimized/hero_carousel/hero-04.jpg',
+      'assets/images_optimized/hero_carousel/hero-05.jpg'
     ];
     
-    // Fisher-Yates shuffle algorithm
-    for (let i = galleryImages.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [galleryImages[i], galleryImages[j]] = [galleryImages[j], galleryImages[i]];
-    }
-    
-    // Select first 5 images
-    const selectedImages = galleryImages.slice(0, 5);
-    
     // Create slides
-    selectedImages.forEach((imgSrc, index) => {
+    heroImages.forEach((imgSrc, index) => {
       const slide = document.createElement('div');
       slide.className = 'carousel-slide';
       slide.style.backgroundImage = `url('${imgSrc}')`;
